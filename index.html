@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankur Kundu - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Noto+Serif+Bengali:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-maroon: #800020;
+            --gold: #FFD700;
+            --cream: #FFF8DC;
+            --deep-orange: #FF6B35;
+            --warm-brown: #8B4513;
+            --ivory: #FFFFF0;
+            --border-gold: #DAA520;
+        }
+        
+        body {
+            font-family: 'Kalam', cursive;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--ivory) 100%);
+            background-attachment: fixed;
+        }
+        
+        /* Bengali Pattern Background */
+        .pattern-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pattern-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--gold) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, var(--deep-orange) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        /* Header with traditional motifs */
+        .header {
+            background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--warm-brown) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Cpath d='M30 0v60M0 30h60'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: rotate 60s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            background: linear-gradient(135deg, var(--gold), var(--deep-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-maroon);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            to { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+        
+        .profile-info h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        .profile-info .subtitle {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 215, 0, 0.2);
+        }
+        
+        /* Traditional decorative border */
+        .decorative-border {
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--gold) 0%, var(--deep-orange) 25%, 
+                var(--primary-maroon) 50%, var(--deep-orange) 75%, 
+                var(--gold) 100%);
+            background-size: 40px 8px;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            margin: 3rem 0;
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-maroon), var(--gold), var(--deep-orange));
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-maroon);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'Noto Serif Bengali', serif;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '❋';
+            display: block;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .summary-text {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #555;
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-maroon);
+            font-style: italic;
+        }
+        
+        .education-item, .work-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--ivory) 0%, var(--cream) 100%);
+            border-radius: 12px;
+            border: 2px solid var(--border-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .education-item:hover, .work-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(128, 0, 32, 0.15);
+        }
+        
+        .education-item h3, .work-item h3 {
+            color: var(--primary-maroon);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        .institution, .company {
+            color: var(--deep-orange);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .duration, .location {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-maroon);
+        }
+        
+        .skill-category h4 {
+            color: var(--primary-maroon);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: var(--primary-maroon);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--deep-orange);
+            transform: scale(1.1);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--border-gold);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-maroon), var(--gold));
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(128, 0, 32, 0.2);
+            border-color: var(--primary-maroon);
+        }
+        
+        .project-title {
+            color: var(--primary-maroon);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        .project-date {
+            color: var(--deep-orange);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .project-points {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .project-points li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+        
+        .project-points li::before {
+            content: '●';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .tech-stack {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px dashed var(--border-gold);
+        }
+        
+        .tech-stack strong {
+            color: var(--primary-maroon);
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        /* Bengali-style footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--warm-brown) 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            font-size: 1.1rem;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        .bengali-text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-info {
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .contact-item {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Scroll animations */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1.0s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header pattern-bg">
+        <div class="header-content">
+            <div class="profile-section">
+                <div class="profile-image">
+                    SK
+                </div>
+                <div class="profile-info">
+                    <h1>শঙ্কর কুন্ডু<br>Sankur Kundu</h1>
+                    <div class="subtitle">AI/ML Engineer & Full-Stack Developer</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Kolkata, West Bengal</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>+91-9776194201</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>✉️</span>
+                            <span>Sankur.kundu.tw@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🔗</span>
+                            <a href="https://www.linkedin.com/in/sankur-kundu/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="decorative-border"></div>
+    
+    <main class="container">
+        <!-- Summary Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary-text">
+                Results-driven Computer Science Engineering student specializing in AI/ML with experience in full-stack development and data analytics. Delivered <strong>$2.3M operational cost savings</strong> through predictive modeling and achieved <strong>94.8% accuracy</strong> in machine learning implementations. Proven expertise in building scalable applications and optimizing database performance.
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section class="section">
+            <h2 class="section-title">শিক্ষা (Education)</h2>
+            <div class="education-item">
+                <h3>BTech - Computer Science and Engineering (AI & ML)</h3>
+                <div class="institution">Institute of Engineering and Management</div>
+                <div class="duration">2022 - 2026</div>
+            </div>
+            <div class="education-item">
+                <h3>Higher Secondary</h3>
+                <div class="institution">Doon International School, Bhubaneswar</div>
+                <div class="duration">2022</div>
+            </div>
+        </section>
+        
+        <!-- Technical Skills Section -->
+        <section class="section">
+            <h2 class="section-title">কারিগরি দক্ষতা (Technical Skills)</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Frameworks & Libraries</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">ONNX Runtime</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Database & Cloud</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Azure</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>AI/ML Specializations</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Model Compression</span>
+                        <span class="skill-tag">Quantization</span>
+                        <span class="skill-tag">Pruning</span>
+                        <span class="skill-tag">Knowledge Distillation</span>
+                        <span class="skill-tag">Neural Architecture Search</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Work Experience Section -->
+        <section class="section">
+            <h2 class="section-title">কর্ম অভিজ্ঞতা (Work Experience)</h2>
+            <div class="work-item">
+                <h3>Software Development Engineer Intern</h3>
+                <div class="company">BlueStock Fintech</div>
+                <div class="location">Kolkata | May 2025 - July 2025</div>
+                <ul class="project-points">
+                    <li>Architected microservices using Node.js supporting 1,000+ concurrent users with 99.9% uptime</li>
+                    <li>Executed Redis caching and database improvements achieving 40% performance boost</li>
+                    <li>Built real-time financial data processing handling 10,000+ daily transactions</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section class="section">
+            <h2 class="section-title">প্রকল্পসমূহ (Projects)</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">AI Model Compression for TSMC 3nm Chips</h3>
+                    <div class="project-date">July 2025</div>
+                    <ul class="project-points">
+                        <li>Enhanced MobileNetV3-Small for TSMC 3nm accelerators reaching 50% model sparsity via pruning</li>
+                        <li>Delivered <100ms inference latency at ~5W power for edge disaster classification systems</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> Python, TensorFlow, PyTorch, ONNX Runtime, Neural Architecture Search
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">AI-Powered Security Monitoring System</h3>
+                    <div class="project-date">Feb-Mar 2025</div>
+                    <ul class="project-points">
+                        <li>Created BERT-based threat detection reaching 94.8% accuracy, reduced false alerts by 73%</li>
+                        <li>Streamlined cloud infrastructure costs by 65% through efficient resource allocation and automated scaling</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> Python, TensorFlow, BERT, AWS SageMaker, Docker, PostgreSQL
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Aviation Revenue Analysis</h3>
+                    <div class="project-date">June 2025</div>
+                    <ul class="project-points">
+                        <li>Analyzed 50,000+ flight operations records identifying 15% profit enhancement opportunities</li>
+                        <li>Developed interactive dashboards improving operational planning efficiency by 25%</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> Python, R, Google BigQuery, Tableau, Statistical Modeling, Data Visualization
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="bengali-text">ধন্যবাদ (Thank You)</div>
+            <div>© 2025 Sankur Kundu - Kolkata, West Bengal</div>
+            <div style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                "যত্রে বিশ্বং ভবত্যেকনীডম্" - Where the world becomes one family
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
